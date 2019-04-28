@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/seletor_grey"
+                android:orientation="vertical">
+
+    <CheckBox
+        android:id="@+id/myorder_item_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/myorder_item_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/myorder_item_status"
+        android:layout_toRightOf="@+id/myorder_item_cb"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/myorder_item_createTime"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="下单时间：2017/10/31 14:09"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/myorder_item_startLoc"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:drawableLeft="@drawable/oval_green"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="出发地：科技创业园-3号楼"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/myorder_item_endLoc"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:drawableLeft="@drawable/oval_red"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="目的地：第一人民医院"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/myorder_item_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:text="已关闭"/>
+
+</RelativeLayout>

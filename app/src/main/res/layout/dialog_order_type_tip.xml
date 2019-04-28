@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/shape_stroke_empty_solid_gray_dialog"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marign_big"
+            android:gravity="center"
+            android:text="温馨提示"
+            android:textColor="@color/red"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/middle_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/execute"
+            android:layout_marginBottom="@dimen/marign_middle"
+            android:layout_marginTop="@dimen/marign_middle"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"
+            android:text="如果您已经到达位置请选择到达位置?"
+            android:textSize="@dimen/size_middle"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/middle_tv"
+            android:background="@color/divider_line_color"/>
+
+        <LinearLayout
+            android:id="@+id/execute"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/cancel"
+                    style="@style/dialog_tv"
+                    android:text="百度导航"
+                    android:textColor="@color/text_font_gray"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/divider_line_color"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/ok"
+                    style="@style/dialog_tv"
+                    android:text="到达位置"
+                    android:textColor="@color/yellow"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

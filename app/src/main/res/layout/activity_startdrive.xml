@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <!-- 计较表 -->
+    <LinearLayout
+        android:id="@+id/map_ll_fare"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!-- 计较表-表头 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+             android:gravity="center">
+
+            <TextView
+                android:id="@+id/map_tv_navigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/bg_blue_smallradius"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/drive_start_nagitation"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="50dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/drive_mileage"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/map_tv_callkehu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/bg_blue_smallradius"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/drive_call_customer"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/map_tv_callkefu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_blue_smallradius"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/drive_call_customer_service"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+
+        <!-- 计较表-内容 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_width="210dp"
+                    android:layout_height="75dp"
+                    android:background="@drawable/bg_main_bg_smallradius"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/drive_wait_time"
+                        android:textColor="@color/white"/>
+
+                    <Chronometer
+                        android:id="@+id/map_cm_waittime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12dp"
+                        android:format="00:00:00"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="210dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="40dp"
+                    android:background="@drawable/bg_main_bg_smallradius"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/drive_drive_mileage"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:id="@+id/map_tv_km"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        android:text="0.00km"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="210dp"
+                        android:layout_height="75dp"
+                        android:background="@drawable/bg_main_bg_smallradius"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="6dp"
+                            android:text="@string/drive_pay_time"
+                            android:textColor="@color/white"/>
+
+                        <Chronometer
+                            android:id="@+id/map_cm_drivetime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@+id/textView3"
+                            android:layout_marginEnd="13dp"
+                            android:layout_marginRight="13dp"
+                            android:format="00:00:00"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="210dp"
+                        android:layout_height="75dp"
+                        android:layout_marginLeft="40dp"
+                        android:background="@drawable/bg_main_bg_smallradius"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="6dp"
+                            android:text="@string/drive_pay_money"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/map_tv_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="12dp"
+                            android:text="0.00"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/map_tv_wait"
+                    android:layout_width="210dp"
+                    android:layout_height="45dp"
+                    android:layout_toLeftOf="@+id/map_tv_stop"
+                    android:background="@drawable/bg_white_back_one"
+                    android:gravity="center"
+                    android:text="开始等待"
+                    android:textColor="@color/black"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/map_tv_go"
+                    android:layout_width="210dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/map_tv_stop"
+                    android:layout_toStartOf="@+id/map_tv_stop"
+                    android:background="@drawable/bg_white_back_one"
+                    android:gravity="center"
+                    android:text="@string/drive_start_wait"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/map_tv_stop"
+                    android:layout_width="210dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="40dp"
+                    android:background="@drawable/bg_black_back"
+                    android:gravity="center"
+                    android:text="@string/drive_settlement_order"
+                    android:textColor="@color/white"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

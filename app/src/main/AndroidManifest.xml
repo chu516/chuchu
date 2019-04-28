@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="bjx.com.siji"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <!-- 用于加快GPS首次定位 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <!-- 用于Android M及以上系统，申请加入忽略电池优化白名单 -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" /> -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <!-- 支付宝 -->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+    <!-- Push service 运行需要的权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+
+
+    <!-- 来电消音 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!-- 摄影机 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <!-- 适配Android N系统必需的ContentProvider写权限声明，写权限包含应用包名 -->
+    <uses-permission android:name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.bjx.com.siji"/>
+
+
+    <!--禁止锁屏、休眠、保持常亮-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
+
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <permission
+        android:name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.bjx.com.siji"
+        android:protectionLevel="normal"/>
+
+    <!--<meta-data-->
+    <!--android:name="com.baidu.lbsapi.API_KEY"-->
+    <!--android:value="KTswYS2bBfR9VpZpX2xUbleyvNgWGOpj" />      &lt;!&ndash;鹰眼 //key:开发者申请的Key&ndash;&gt;-->
+
+    <application
+        android:name="bjx.com.siji.application.App"
+        android:allowBackup="false"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme">
+        <!--启动界面-->
+        <activity
+            android:name="bjx.com.siji.ui.activity.LaunchActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name="bjx.com.siji.ui.activity.LoginActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="bo7HcdGG4iCzZdUdr0w2kmLvOoh0vC3e"/>
+
+        <!-- push应用定义消息receiver声明 -->
+        <receiver android:name="bjx.com.siji.receiver.MyPushMessageReceiver">
+            <intent-filter>
+
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
+                <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- push必须的receviver和service声明 -->
+        <receiver
+            android:name="com.baidu.android.pushservice.PushServiceReceiver"
+            android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW"/>
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK"/>
+                <!-- 以下四项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.baidu.android.pushservice.RegistrationReceiver"
+            android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD"/>
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <!--后台持续报告司机位置，持续获取订单-->
+        <service android:name="bjx.com.siji.service.DriverService">
+        </service>
+
+        <service android:name=".service.PlayerMusicService"
+                 android:enabled="true"
+                 android:exported="true"
+                 android:process=":music_service"/>
+
+         <service
+            android:name="com.baidu.android.pushservice.PushService"
+            android:exported="true"
+            android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE"/>
+            </intent-filter>
+        </service>
+
+        <!--鹰眼  在Application标签中声明service组件,每个APP拥有自己独立的鹰眼追踪service-->
+        <service
+            android:name="com.baidu.trace.LBSTraceService"
+            android:enabled="true"
+            android:process=":remote">
+        </service>
+
+
+        <service
+            android:name="com.baidu.android.pushservice.CommandService"
+            android:exported="true"/>
+
+
+        <!-- 适配Android N系统必需的ContentProvider声明，写权限包含应用包名 -->
+        <provider
+            android:name="com.baidu.android.pushservice.PushInfoProvider"
+            android:authorities="bjx.com.siji.bdpush"
+            android:exported="true"
+            android:protectionLevel="signature"
+            android:writePermission="baidu.push.permission.WRITE_PUSHINFOPROVIDER.bjx.com.siji"/>
+
+        <!-- 在百度开发者中心查询应用的API Key -->
+        <meta-data
+            android:name="api_key"
+            android:value="bo7HcdGG4iCzZdUdr0w2kmLvOoh0vC3e"/>
+
+        <!-- WX 分享支付回调 begin -->
+        <activity
+            android:name="bjx.com.siji.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:scheme="wx7088cf99c63b0988"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="bjx.com.siji.pay.AppRegister">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- WX 分享支付回调 end -->
+
+
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <!-- alipay sdk end -->
+
+        <activity android:name="bjx.com.siji.ui.activity.ShowMapInfoActivity"/>
+
+        <activity android:name="bjx.com.siji.ui.activity.ShowMapDemoActivity"/>
+
+        <!--  <activity android:name=".ui.activity.ShowMapDemoActivity"/>-->
+
+        <activity android:name="bjx.com.siji.ui.activity.DistributeOrderActivity"/>
+
+        <activity android:name="bjx.com.siji.ui.activity.ShowMapOrderActivity"/>
+
+        <activity android:name="bjx.com.siji.ui.activity.NearbySJListActivity"/>
+
+
+        <activity
+            android:name="bjx.com.siji.ui.activity.MainActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="bjx.com.siji.ui.activity.ForgetPwdActivity"/>
+
+        <activity android:name="bjx.com.siji.ui.activity.WorkInfoActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.SalaryDetailActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.DepositActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.NoticeActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.CreateOrderActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.UpdatePasswordActivity"/>
+
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+
+
+        <!--<meta-data android:name="com.baidu.lbsapi.API_KEY"-->
+        <!--android:value="KTswYS2bBfR9VpZpX2xUbleyvNgWGOpj" />-->
+
+
+        <!--   <activity   android:name=".ui.sdkdemo.BNDemoMainActivity"
+               android:configChanges="orientation|screenSize|keyboard|keyboardHidden"/>
+
+           <activity   android:name=".ui.sdkdemo.BNDemoGuideActivity"
+               android:configChanges="orientation|screenSize|keyboard|keyboardHidden"/>-->
+
+        <activity android:name="bjx.com.siji.ui.activity.ShowMapshowActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.ShowTranActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.TracingActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.TiXianActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.CreateOrderMapActivity"/>
+
+        <activity android:name="bjx.com.siji.ui.activity.TallyOrderActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.BNDemoMainActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.BNDemoGuideActivity"/>
+
+        <activity
+            android:name="bjx.com.siji.ui.activity.StartDriveActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleInstance"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.SINGLE_INSTANCE_SHARE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!--
+        1，android:configChanges="orientation|keyboardHidden|screenSize"
+        目的是进行横竖屏切换的时候不重新调用各个生命周期
+        2, android:screenOrientation="landscape"
+        landscape 指定屏幕一直为横屏 portrait定屏幕一直为竖 屏
+        -->
+          <activity
+            android:name="bjx.com.siji.ui.activity.RestartDriveActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleInstance"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.SINGLE_INSTANCE_SHARE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name="bjx.com.siji.ui.activity.SearchLocActivity"/>
+
+        <!--新增订单列表-->
+        <activity android:name="bjx.com.siji.ui.order.OrderDetailActivity"/>
+        <activity android:name="bjx.com.siji.ui.order.MyOrderActivity"/>
+        <activity android:name="bjx.com.siji.ui.activity.WebViewActivity"/>
+
+        <activity android:name="bjx.com.siji.ui.activity.NavigationMapActivity"/>
+
+        <activity android:name="bjx.com.siji.ui.activity.NavigationSearchActivity"/>
+
+
+    </application>
+
+</manifest>

@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">保驾行司机</string>
+
+    <string name="loading">loading...</string>
+    <string name="net_err">网络连接异常</string>
+    <string name="lettersnum_input">qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_order_fragment">OrderFragment</string>
+
+    <!--订单-->
+    <string name="fragment_order_creat">创建订单</string>
+    <string name="fragment_order_list"> 订单列表</string>
+
+    <string name="fragment_finish_order_list">订单列表</string>
+
+    <string name="fragment_order_creat_type">订单类型</string>
+    <string name="fragment_order_creat_type_1">代驾</string>
+    <string name="fragment_order_creat_phone">手&#160;&#160;机&#160;&#160;号</string>
+    <string name="fragment_order_creat_start_address">开始地址</string>
+    <string name="fragment_order_creat_end_address">目的地址</string>
+    <string name="fragment_order_creat_start_address_1">请选择地址</string>
+    <string name="fragment_order_creat_car_type">车&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;型</string>
+    <string name="fragment_order_creat_car_no">车&#160;&#160;牌&#160;&#160;号</string>
+    <string name="fragment_order_zhu">备&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;注</string>
+    <string name="fragment_order_creat_btn">报单</string>
+    <string name="fragment_order_new">新订单</string>
+    <string name="fragment_order_new_time">接单倒计时</string>
+
+    <string name="fragment_order_new_number">订单编号</string>
+    <string name="fragment_order_new_create_time">下单时间</string>
+    <string name="fragment_order_new_order_call">联系电话</string>
+    <string name="fragment_order_new_order_start_address">开始地址</string>
+    <string name="fragment_order_new_order_car_type">车型</string>
+    <string name="fragment_order_new_order_car_number">车牌号</string>
+    <string name="distribute_order">订单</string>
+
+    <!--地图-->
+    <string name="order_distribute">订单地图</string>
+    <string name="fragment_distribute">地图</string>
+    <string name="fragment_start_drive">开始代驾</string>
+    <string name="startlocation">开始定位</string>
+    <string name="stoplocation">停止定位</string>
+    <!--代驾-->
+    <string name="drive_start_false">开始导航</string>
+    <string name="drive_start_nagitation">导航指路</string>
+    <string name="drive_mileage">里程计费</string>
+    <string name="drive_call_customer">联系客户</string>
+    <string name="drive_call_customer_service">联系客服</string>
+    <string name="drive_wait_time">等待用时</string>
+    <string name="drive_drive_mileage">行驶里程</string>
+    <string name="drive_pay_time">行驶用时</string>
+    <string name="drive_pay_money">行驶金额</string>
+    <string name="drive_start_wait">开始代驾</string>
+    <string name="drive_end_wait">结束等待</string>
+    <string name="drive_settlement_order">结算订单</string>
+
+    <!--文件-->
+    <string name="font_type">微软雅黑</string>
+    <string name="tracing_title">轨迹追踪</string>
+    <!-- 追踪控制子选项 -->
+    <string name="start_trace">开启服务</string>
+    <string name="stop_trace">停止服务</string>
+    <string name="start_gather">开启采集</string>
+    <string name="stop_gather">停止采集</string>
+    <!-- 报警通知标题 -->
+    <string name="alarm_push_title">百度鹰眼报警推送</string>
+
+    <!--网络设置-->
+
+    <string name="dialog_network_tip">网络提示</string>
+
+    <string name="dialog_network_start_location">系统检测到未开启GPS定位服务,是否去开启?</string>
+    <string name="dialog_network_set">去设置</string>
+
+
+
+
+    <!--通用-->
+    <string name="back">返回</string>
+
+    <string name="basic_confirm">确认</string>
+    <string name="basic_confirm2">确定</string>
+    <string name="basic_finish">完成</string>
+
+    <string name="basic_cancel">取消</string>
+    <string name="basic_select">选择</string>
+
+
+
+</resources>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"
+                android:src="@drawable/back"/>
+
+            <TextView
+                android:id="@+id/toolbar_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:text="@string/order_distribute"
+                android:textSize="20sp"/>
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:id="@+id/main_top_RL"
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <com.baidu.mapapi.map.TextureMapView
+                android:id="@+id/main_bdmap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:onClick="onClick">
+
+            </com.baidu.mapapi.map.TextureMapView>
+
+
+            <ImageView
+                android:id="@+id/main_iv_position"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_smallradius"
+                android:scaleType="centerInside"
+                android:src="@mipmap/position" />
+
+            <!--<ImageView-->
+                <!--android:id="@+id/center_id"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:src="@mipmap/baidumap_ico_poi_on" />-->
+
+            <ImageView android:id="@+id/center_id"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="centerInside"
+                android:layout_above="@+id/createordermap_v_point"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/loc_flag"/>
+
+            <View android:id="@+id/createordermap_v_point"
+                android:layout_width="0.01px"
+                android:layout_height="0.01px"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/main_pois"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"></ListView>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

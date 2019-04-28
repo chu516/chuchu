@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'bjx'
+            keyPassword '123456'
+            storeFile file('D:\\work\\yihe\\0428\\bjx.com.kehu\\keystore\\bjx.keystore')
+            storePassword '123456'
+        }
+    }
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+    compileSdkVersion ANDROID_BUILD_SDK_VERSION as int
+//    buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
+    buildToolsVersion '27.0.3'
+
+
+    defaultConfig {
+        applicationId "bjx.com.siji"
+        minSdkVersion ANDROID_BUILD_MIN_SDK_VERSION as int
+        targetSdkVersion ANDROID_BUILD_TARGET_SDK_VERSION as int
+        versionName VERSION_NAME
+        versionCode VERSION_CODE as int
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+    defaultConfig {
+        ndk {
+            abiFilters "armeabi"
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'cn.bingoogolapple:bga-adapter:1.1.5@aar'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //
+    //    compile 'com.android.support:design:25.3.1'
+    //    compile 'com.android.support:support-v4:25.3.1'
+    //    compile 'com.android.support:recyclerview-v7:25.3.1'
+    //    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:27.1.1'
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:support-v4:27.1.1'
+    compile 'com.android.support:recyclerview-v7:27.1.1'
+    //2018-10-5 下拉刷新组件
+    compile 'cn.bingoogolapple:bga-adapter:1.1.5@aar'
+    compile 'cn.bingoogolapple:bga-refreshlayout:1.1.7@aar'
+    compile 'com.qianwen:okhttp-utils:3.8.0'
+    compile 'com.lzy.net:okgo:3.0.4'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile project(':update-app')
+}

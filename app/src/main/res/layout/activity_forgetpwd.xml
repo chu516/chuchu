@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include android:id="@+id/toolbar" layout="@layout/toolbar_back" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <EditText
+            android:id="@+id/fgtpwd_et_tel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_lightgrey_smallradius"
+            android:hint="请输入原手机号码"
+            android:inputType="number"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/darkgrey"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/fgtpwd_et_idencode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/bg_lightgrey_smallradius"
+                android:hint="请输入验证码"
+                android:inputType="number"
+                android:maxLength="4"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:textColorHint="@color/darkgrey"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/fgtpwd_tv_sendidencode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_yellow_smallradius"
+                android:gravity="center"
+                android:text="获取验证码"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/fgtpwd_et_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_lightgrey_smallradius"
+            android:hint="请输入新密码"
+            android:inputType="textPassword"
+            android:maxLength="12"
+            android:maxLines="1"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/darkgrey"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/fgtpwd_tv_sub"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_blue_smallradius"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

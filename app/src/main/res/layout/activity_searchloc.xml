@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greyLight">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView android:id="@+id/searchloc_back"
+            android:layout_width="46dp"
+            android:layout_height="30dp"
+            android:paddingLeft="16dp"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/back" />
+
+        <EditText android:id="@+id/searchloc_et_search"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@+id/searchloc_back"
+            android:layout_toLeftOf="@+id/searchloc_tv_search"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:maxLength="50"
+            android:background="@drawable/bg_grey_smallradius"
+            android:hint="请输入代驾目的地"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/searchloc_tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="搜索"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <bjx.com.siji.widget.MyListView
+        android:id="@+id/searchloc_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:divider="@color/grey"
+        android:dividerHeight="1px"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+    <TextView android:id="@+id/searchloc_loadmore"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/searchloc_lv"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/colorPrimary"
+        android:text="加载更多.."/>
+    </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
